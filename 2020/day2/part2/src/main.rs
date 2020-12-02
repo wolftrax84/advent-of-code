@@ -7,7 +7,10 @@ fn main() {
     //    Tests
     /////////////////////////////////////////////////////////////
     let tests: Vec<Test> = vec![
-        // Insert test cases here
+        Test { expected: 1.to_string(), inputs: vec![String::from("1-3 a: abcde
+        1-3 b: cdefg
+        2-9 c: ccccccccc
+        ")]}
     ];
 
     for test in tests {
