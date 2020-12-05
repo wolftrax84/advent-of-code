@@ -7,7 +7,7 @@ fn main() {
     //    Tests
     /////////////////////////////////////////////////////////////
     let tests: Vec<Test> = vec![
-        // Insert test cases here
+        Test { expected: 820.to_string(), inputs: vec![String::from("FBFBBFFRLR\nBFFFBBFRRR\nFFFBBBFRRR\nBBFFBBFRLL")] }
     ];
 
     for test in tests {
