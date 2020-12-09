@@ -7,7 +7,19 @@ fn main() {
     //    Tests
     /////////////////////////////////////////////////////////////
     let tests: Vec<Test> = vec![
-        // Insert test cases here
+        Test {
+            expected: 5.to_string(),
+            inputs: vec![String::from("nop +0
+acc +1
+jmp +4
+acc +3
+jmp -3
+acc -99
+acc +1
+jmp -4
+acc +6
+")]
+        }
     ];
 
     for test in tests {
