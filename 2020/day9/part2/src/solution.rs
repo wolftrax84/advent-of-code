@@ -42,8 +42,6 @@ pub fn run(args: &Vec<String>) -> Result<String, &'static str> {
     sum_deque.make_contiguous().sort();
 
     Ok((sum_deque.pop_front().unwrap() + sum_deque.pop_back().unwrap()).to_string())
-
-    // Err("Not found!")
 }
 
 fn valid_value(previous_values: &VecDeque<u64>, value: u64) -> bool {

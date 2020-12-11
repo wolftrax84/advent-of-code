@@ -28,7 +28,6 @@ pub fn run(args: &Vec<String>) -> Result<String, &'static str> {
                 let current_bag = bags_to_check.remove(0);
                 checked_bags.push(current_bag.clone());
                 if let Some(current_bag_containers) = bag_map.get(&current_bag) {
-                    println!("{} -> {:?}", current_bag, current_bag_containers);
                     for container in current_bag_containers {
                         if !checked_bags.contains(container) && !bags_to_check.contains(container) {
                             bags_to_check.push(String::from(container));
@@ -43,4 +42,3 @@ pub fn run(args: &Vec<String>) -> Result<String, &'static str> {
     // Subtract one from checked_bags to remove starting "shiny gold" ref
     Ok((checked_bags.len() - 1).to_string())
 }
-
