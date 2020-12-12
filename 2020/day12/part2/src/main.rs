@@ -4,7 +4,10 @@ mod solution;
 
 fn main() {
     let tests: Vec<Test> = vec![
-        // Insert test cases here
+        Test {
+            expected: 286.to_string(),
+            inputs: vec!["F10\nN3\nF7\nR90\nF11\n".to_string()]
+        }
     ];
 
     run_solution(&solution::run, tests);    
