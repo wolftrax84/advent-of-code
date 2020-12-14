@@ -6,3 +6,4 @@ edition = "2018"
 
 [dependencies]
 aoc_rust_common = { path =  "../../../aoc_rust_common"}
+regex="1"
