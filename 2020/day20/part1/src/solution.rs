@@ -68,11 +68,9 @@ impl Puzzle {
     }
 }
 
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 struct Tile {
     key: u64,
-    puzzle_row: isize,
-    puzzle_col: isize,
     left_border: usize,
     left_border_rev: usize,
     right_border: usize,
@@ -81,7 +79,6 @@ struct Tile {
     top_border_rev: usize,
     bottom_border: usize,
     bottom_border_rev: usize,
-    grid: [[char; 10]; 10],
 }
 
 impl Tile {
@@ -93,7 +90,6 @@ impl Tile {
         let mut bottom_border_rev: usize = 0;
         let mut left_border: Vec<String> = Vec::new();
         let mut right_border: Vec<String> = Vec::new();
-        let mut grid = [['.'; 10]; 10];
         for (i, row) in tile_str[11..].split("\n").enumerate() {
             if i == 0 {
                 let mut rev: Vec<String> = row.clone().chars().map(|c| c.to_string()).collect::<Vec<String>>();
@@ -116,7 +112,6 @@ impl Tile {
                 if j == 9 {
                     right_border.push(character.to_string().clone());                    
                 }
-                grid[i][j] = character;
             }
         }
         let mut left_border_rev = left_border.clone();
@@ -129,8 +124,6 @@ impl Tile {
         let right_border = get_border_number(&right_border.join(""));
         Tile {
             key,
-            puzzle_col: -1,
-            puzzle_row: -1,
             left_border,
             left_border_rev,
             right_border,
@@ -139,7 +132,6 @@ impl Tile {
             top_border_rev,
             bottom_border,
             bottom_border_rev,
-            grid
         }
     }
 }
