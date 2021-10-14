@@ -31,7 +31,7 @@ function makeFile {
     }
 }
 
-$path = '.\aoc-'+$year;
+$path = '.\'+$year;
 makeDirectory -path $path
 
 ################################################
@@ -52,6 +52,15 @@ $vsCodeTaskContent = '{
     }]
 }'
 makeFile -path $vsCodeTask -content $vsCodeTaskContent
+
+################################################
+# Create git ignore
+################################################
+$gitIgnoreContent = 'node_modules
+package-lock.json';
+$gitIgnorePath = $path + '\.gitignore';
+makeFile -path $gitIgnorePath -content $gitIgnoreContent
+
 
 ################################################
 # Create day files
@@ -82,7 +91,7 @@ const run = (actualInput: any[]) => {
 }
 
 import * as fs from "fs"
-const partSpecificDataFile = `${__dirname}/${__filename.split("\\").pop().split(".")[0]}.data.txt`;
+const dataFile = `${__dirname}/${__filename.split("\\").pop().split(".")[0]}.data.txt`;
 const dayDataFile = `${__dirname}/data.txt`;
 let fileData;
 if(fs.existsSync(partSpecificDataFile))
@@ -90,13 +99,13 @@ if(fs.existsSync(partSpecificDataFile))
 else if(fs.existsSync(dayDataFile))
     fileData = fs.readFileSync(dayDataFile, "utf8");
 else
-    fileData = "blah"; // Replace with custom data if no data file
+    fileData = "Replace with custom data if no data file"
 run([fileData]);'
 
 for($i=1; $i -le 25; $i++) {
     $dayPath = $path + "\day$i"
-    $dayFileAPath = $dayPath + "\a.ts"
-    $dayFileBPath = $dayPath + "\b.ts"
+    $dayFileAPath = $dayPath + "\part1.ts"
+    $dayFileBPath = $dayPath + "\part2.ts"
     makeDirectory -path $dayPath
     makeFile -path $dayFileAPath -content $dayFileContent
     makeFile -path $dayFileBPath -content $dayFileContent
