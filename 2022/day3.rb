@@ -14,8 +14,8 @@ def part2(input)
     return sum
 end
 
-actual = File.read('./input.txt').lines.map(&:chomp).map(&:codepoints)
-actual2 = File.read('./input.txt').lines.map(&:chomp).map(&:codepoints)
+actual = File.read('./day3.txt').lines.map(&:chomp).map(&:codepoints)
+actual2 = File.read('./day3.txt').lines.map(&:chomp).map(&:codepoints)
 
 puts part1(actual)
 puts part2(actual2)
