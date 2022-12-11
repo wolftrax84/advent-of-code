@@ -63,7 +63,7 @@ def part2(monkeys)
     monkey_counts.sort.reverse.take(2).inject(:*)
 end
 
-actual = File.read('./input.txt').split("\n\n")
+actual = File.read('./day11.txt').split("\n\n")
 monkeys1 = actual.map{|m| 
     caps = m.match(/.*items:(.+)\n.*((?:\*|\+) (?:\d+|old)).* (\d+).* (\d+).* (\d+)/m).captures
     Monkey.new(
