@@ -2,21 +2,66 @@ require 'set'
 
 class Actor
   def initialize(type, position)
-    set_position(position)
     @type = type
     @hp = 200
     @attack = 3
+    @position = position
   end
 
-  attr_accessor :type, :position, :hp, :attack, :neighbors
-
-  def set_position(new_position)
-    @position = new_position
-    @neighbors = [[new_position[0]-1,new_position[1]], [new_position[0],new_position[1]-1], [new_position[0],new_position[1]+1], [new_position[0]+1, new_position[1]]]
-  end
-
+  attr_accessor :type, :position, :hp, :attack
 end
 
+def get_neighbors(position)
+  [[position[0]-1,position[1]], [position[0],position[1]-1], [position[0],position[1]+1], [position[0]+1, position[1]]]
+end
+
+def is_earlier(position1, position2)
+  if position1[0] < position2[0]
+    return true
+  elsif position2[0] < position1[0]
+    return false
+  elsif position1[1] < position2[1]
+    return true
+  elsif position2[1] < position1[1]
+    return false
+  else
+    throw "This shouldn't happen #{position1} <=> #{position2}"
+  end
+end
+
+def get_best_move(map, location, targets)
+  sources = get_neighbors(location)
+  queues = [{sources[0] => 0}, {sources[1] => 0}, {sources[2] => 0}, {sources[3] => 0}]
+  visited = [Set[], Set[], Set[], Set[]]
+  bests = []
+  loop do
+    4.times.with_index do |i|
+      # skip if queue is empty
+      next if queues[i].size == 0
+      # get next node in the queue
+      loc, dist = queues[i].min_by { |k,v| [v, k[0], k[1]] }
+      # clear queue if dist greater than best
+      if dist > bests[i][1]
+        queues[i].clear
+        next
+      end
+      visited[i].add(loc)
+      queues[i].delete(loc)
+      # check if we've hit a target
+      if targets.include?(loc)
+        if is_earlier(loc, bests[i][0])
+          bests[i] = [loc, dist]
+        end
+        next
+      end
+    end
+    break
+  end
+end
+
+get_best_move(nil, [2,2], [])
+
+return
 def shortest_path(map, start, targets)
   queue = {}
   queue[start] = 0
@@ -66,6 +111,10 @@ def part1(input)
       end
     end
   end
+
+  p elves
+  p elf_targets
+  return
   
   i = 1
   
@@ -233,7 +282,7 @@ combat_test_6 = '#########
 #.....G.#
 #########'.lines
 
-# puts [27730, part1(combat_test)]
+puts [27730, part1(combat_test)]
 # puts [36334, part1(combat_test_2)]
 # puts [39514, part1(combat_test_3)]
 # puts [27755, part1(combat_test_4)]
