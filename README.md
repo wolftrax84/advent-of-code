@@ -1,13 +1,12 @@
 ## Advent of Code
 
----
-
 <details>
 <summary><h3 style="display: inline-block;">2015 (50★)</h3></summary>
 
 | Day | Ruby (1) | Ruby (2) |
-| --- | -------- | -------- |
-| 01  | 0.49 ms  | 0.17 ms  |
+| --- | -------: | -------: |
+| 01  |  0.49 ms |  0.17 ms |
+| 02  |  1.21 ms |  0.61 ms |
 
 </details>
 <details>
