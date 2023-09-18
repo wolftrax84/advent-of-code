@@ -23,7 +23,12 @@
 </details>
 
 <details>
-<summary><h3 style="display: inline-block;">2018 (28★)</h3></summary>
+<summary><h3 style="display: inline-block;">2018 (30★)</h3></summary>
+
+| Day |  Ruby (1) |   Ruby (2) |
+| --- | --------: | ---------: |
+| 15  | 850.27 ms | 6070.51 ms |
+
 </details>
 
 <details>
