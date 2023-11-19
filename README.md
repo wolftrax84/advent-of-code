@@ -23,13 +23,14 @@
 </details>
 
 <details>
-<summary><h3 style="display: inline-block;">2018 (34★)</h3></summary>
+<summary><h3 style="display: inline-block;">2018 (36★)</h3></summary>
 
 | Day |  Ruby (1) |   Ruby (2) |
 | --- | --------: | ---------: |
 | 15  | 850.27 ms | 6070.51 ms |
 | 16  |  16.35 ms |    3.22 ms |
 | 17  | 177.33 ms |  189.62 ms |
+| 18  |  93.96 ms | 5087.17 ms |
 
 </details>
 
