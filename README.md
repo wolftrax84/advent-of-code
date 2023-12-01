@@ -50,3 +50,11 @@
 <details>
 <summary><h3 style="display: inline-block;">2022 (50★)</h3></summary>
 </details>
+<details>
+<summary><h3 style="display: inline-block;">2023 (2★)</h3></summary>
+
+| Day | Ruby (1) | Ruby (2) |
+| --- | -------: | -------: |
+| 01  |   1.5 ms |  2.75 ms |
+
+</details>
