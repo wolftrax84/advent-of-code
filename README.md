@@ -52,7 +52,7 @@
 </details>
 
 <details>
-<summary><h3 style="display: inline-block;">2023 (8★)</h3></summary>
+<summary><h3 style="display: inline-block;">2023 (10★)</h3></summary>
 
 | Day | Ruby (1) | Ruby (2) |
 | --- | -------: | -------: |
@@ -60,5 +60,6 @@
 | 02  |  1.27 ms |  1.32 ms |
 | 03  |  6.96 ms |  8.46 ms |
 | 04  |  3.39 ms |  3.51 ms |
+| 05  |   0.5 ms |  1.36 ms |
 
 </details>
